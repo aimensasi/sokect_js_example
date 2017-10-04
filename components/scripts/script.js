@@ -1,0 +1,25 @@
+var Echo = require('laravel-echo');
+var auth = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjMzY2EwZDRjOGNmMDk2NTk3NThmNjYzMzcyMjcwMzk0N2YwODI1ZWZhZWZmNDQ0YzEzMDg4YmQ3OWNmOTVkNDdjOWUyNzRmZjcwZDZiOTU3In0.eyJhdWQiOiIzIiwianRpIjoiMzNjYTBkNGM4Y2YwOTY1OTc1OGY2NjMzNzIyNzAzOTQ3ZjA4MjVlZmFlZmY0NDRjMTMwODhiZDc5Y2Y5NWQ0N2M5ZTI3NGZmNzBkNmI5NTciLCJpYXQiOjE1MDA5NzM0MTAsIm5iZiI6MTUwMDk3MzQxMCwiZXhwIjoxNTMyNTA5NDEwLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.jMwjWULz-KGI5RBCFw7Vw9XZJDEDXRYUbZ2x9l5i5fi9vavsMvNvcb47doy_mXq-ghY3l390w9E4wCDT3AemLo9OJ1ze0psKT3Htrba-Gkc-jD3XYl--UG9O_A7YjM3d7ATJpJYCLgcGMuR2Cyk5FVFqy-jed2roaUmu0d9x7nTQpHQZ0sBHVFQyyAJza1tR4XYMAA9Fd2H78Bc_aPMdk9ZCh2YNbItCgTTrFxSF7-37PxlGD6gFY_DRdEjwpQv3bwVS5mJtY98tzszzUp6MyYDJWg3USK-nYoC3sGUsQ6elQS9TTDcyt6kCzodwet3dWrF2DE0RxhZfua3_QQrdTVQ140ZYaz1MA87cMirIZz6fh61FEJUs-ZkDclG9u5SLVSYEDdAt5Q7wY6RtX_K9_6M5A-n916ykJGUBRysxcJMRmHJkdDbVRQqbGkoO6wFmRjJsZOyEjZ-TAQqL-P8DzYIBNXkfajgryf_xiW6DyFtT7jtlIn58KD-PjuT1ourcC2NBwc1qdaj1QnrsWkEmwFukbumn9Iy2uJq0fVzMeTy9iKvxPueUmQJe8aClTYD52ajebShS8uP1kabnLqeArh6mX7THXTlLzsNEUfWA7b9o845ucoBC_rfiNJHETvJb6yRifPQHks9p4g_9U45D6brcsgGLL2KEUeVkesX9gyE';
+var token = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjVhYTg0NWJlOGE2MTFhMGI1OGMyOGZkMjgzMTkwY2MxNmY3ZGY4ZDQ3YjIzN2U4MjQ3NmQ5YjVmZGNjZWI1MGExZGRhOWIzOWI1ZDA3NGVmIn0.eyJhdWQiOiIyIiwianRpIjoiNWFhODQ1YmU4YTYxMWEwYjU4YzI4ZmQyODMxOTBjYzE2ZjdkZjhkNDdiMjM3ZTgyNDc2ZDliNWZkY2NlYjUwYTFkZGE5YjM5YjVkMDc0ZWYiLCJpYXQiOjE1MDE2NTY0MTcsIm5iZiI6MTUwMTY1NjQxNywiZXhwIjoxNTMzMTkyNDE3LCJzdWIiOiI2OSIsInNjb3BlcyI6WyIqIl19.QVyl1HogCC36riXEbdgzhXytI2XMEl19SxT9pY8onz7BEcz52kyix39qBSfMMTrQUJqXhBYbzfycWHdFR6s7sxfstWWEPtcJffUVwSHDBgcA0KjD9ewjFSnA55zb10XHyLrw_VKXzOCNCnlL6a6u3qGxkjbAOS74E1gPzRhMp4NKmKCCk5RmUbSn1Ipnoyi11e77FrvH35cG1csbvlvVaNdnOVZHNtat9IjsAJjUIAXcPfKW1c_gj9vq4V1K2ZJyW8xtCHkgP4slkGLHzri5AqtrFqAUUS6H6dgTZA52ikfuTD_3lolJDUPVQmvsNfEq_wm_F4uEWovM4belQfEsNwQdxwRTYKT1s7Zjr68g3D542S3Y2Z7TQU3_jqvDQXuUxT13CJN7w-UWJkMc46y6CdMU9RUE8zAfjL4yR8YmZaEoHqZXdBKkDOSax_65-6Kn2iW4eIprDinUZSC6zlPCcjnkr-SshlMm_N8HIRCselfgN80XOBUKOT3A7dZDZ4BE2Q001WZjoYjaPlNHqI_zwmYnolVOfZAiXIBMwjHILEvoCGr3VMUHUz9uOv2hqgzTIzmcZDXHnXSvxs1BvLNsUDCx12bZl_5KI4D1_abTXYwXg8xuTuQf9KY3rYxArRV8Vr1ZJe0QQK9eEpu_J-c-WXz8t-YtkvuFyNxWusclORY';
+window.Echo = new Echo({
+    broadcaster: 'socket.io',
+    host: 'http://localhost:6001',
+    auth:
+    {
+        headers:
+        {
+            'Content-Type': 'application/json',
+            'Authorization': auth,
+            'Token': token
+        }
+    },
+    namespace: 'MoneyMatch.Events'
+});
+
+// The number 5 should be added dynamically using the chat Id
+window.Echo.private('chats.5')
+.listen('OnMessageSent', (e) => {
+    console.log("Received Event");
+    console.log(e);
+});
+
